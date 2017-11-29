@@ -1,0 +1,38 @@
+<div class="alert alert-warning" role="alert" *ngIf="!usuario.hasOwnProperty('uid') || !usuario.uid.length > 0">
+    Debes de completar tu perfil
+    <button type="button" class="btn btn-outline-dark btn-sm"
+            [routerLink]="['/main/perfil']">Ir a perfil</button>
+</div>
+<div class="alert alert-warning" role="alert" *ngIf="!usuario.hasOwnProperty('personalidad') ||
+                                                     !usuario.hasOwnProperty('vision') ||
+                                                     !usuario.hasOwnProperty('gustos')">
+    Debes de completar el test antes de iniciar el proceso de busqueda
+    <button type="button" class="btn btn-outline-dark btn-sm"
+            [routerLink]="['/main/test']"
+            *ngIf="!usuario.hasOwnProperty('gustos')">Ir al test</button>
+    <button type="button" class="btn btn-outline-dark btn-sm"
+            [routerLink]="['/main/test/vision']"
+            *ngIf="!usuario.hasOwnProperty('vision') &&
+                    usuario.hasOwnProperty('gustos')">Ir al test</button>
+    <button type="button" class="btn btn-outline-dark btn-sm"
+            [routerLink]="['/main/test/personalidad']"
+            *ngIf="!usuario.hasOwnProperty('personalidad') &&
+                   usuario.hasOwnProperty('vision') &&
+                   usuario.hasOwnProperty('gustos')">Ir al test</button>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-5 text-center">
+    <br>
+    <img [src]="usuario.fotoUrl" *ngIf="usuario.fotoUrl != null">
+    <h6>{{usuario.nombre}}</h6>
+  </div>
+  <div class="col-md-2 text-center">
+    <br>
+    <button type="button" class="btn btn-primary" (click)="comparar()">Buscar</button>
+  </div>
+  <div class="col-md-5 text-center">
+    <br>
+    Foto
+  </div>
+</div>

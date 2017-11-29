@@ -1,0 +1,32 @@
+.btn-color{
+  position: relative;
+  width: 20%;
+  height: 0;
+  padding-bottom: 20%;
+  border-radius: 25%;
+  border-width: thin;
+}
+.btn-azul{
+  background-color: blue;
+}
+.btn-verde{
+  background-color: green;
+}
+.btn-rojo{
+  background-color: red;
+}
+.btn-amarillo{
+  background-color: yellow;
+}
+.btn-violeta{
+  background-color: violet;
+}
+.btn-marron{
+  background-color: brown;
+}
+.btn-gris{
+  background-color: gray;
+}
+.btn-negro{
+  background-color: black;
+}

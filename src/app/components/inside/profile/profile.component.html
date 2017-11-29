@@ -1,0 +1,123 @@
+<h4>Perfil</h4>
+<hr>
+<form (ngSubmit)="guardarCambios()" [formGroup]="forma">
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Nombre</label>
+    <div class="col-8">
+      <input formControlName = "nombre"
+             [ngClass]=" { 'is-invalid' : (forma.controls['nombre'].invalid),
+                           'is-valid' : (forma.controls['nombre'].valid) } "
+             class="form-control"
+             type="text"
+             placeholder="Nombre">
+      <div *ngIf="forma.get('nombre').errors?.required"
+            class="invalid-feedback">Este campo es obligatorio
+      </div>
+      <div *ngIf="forma.get('nombre').errors?.minlength"
+            class="invalid-feedback">El nombre debe de tener por lo menos 3 caracteres</div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Fecha de nacimiento</label>
+    <div class="col-8">
+      <input formControlName = "fechaNac"
+             [ngClass]=" { 'is-invalid' : (forma.controls['fechaNac'].invalid),
+                           'is-valid' : (forma.controls['fechaNac'].valid) } "
+             class="form-control"
+             type="date">
+      <div *ngIf="forma.get('fechaNac').errors?.required"
+            class="invalid-feedback">Este campo es obligatorio
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Sexo</label>
+    <div class="col-md-8">
+      <label class="custom-control custom-radio">
+        <input  formControlName = "sexo"
+                type="radio"
+                class="custom-control-input"
+                value="hombre"
+                name="sexo">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">Hombre</span>
+      </label>
+      <label class="custom-control custom-radio">
+        <input  formControlName = "sexo"
+                type="radio"
+                class="custom-control-input"
+                value="mujer"
+                name="sexo">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">Mujer</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Busco</label>
+    <div class="col-md-8">
+      <select class="form-control"
+              [ngClass]=" { 'is-invalid' : (forma.controls['busca'].invalid),
+                            'is-valid' : (forma.controls['busca'].valid) } "
+              name="busca"
+              formControlName = "busca">
+        <option value="">Selecciona un valor</option>
+        <option value="conocer personas">Conocer personas</option>
+        <option value="amistad">Amistad</option>
+        <option value="relacion">Noviasgo</option>
+        <option value="no lo se">No estoy seguro</option>
+      </select>
+      <div *ngIf="forma.get('busca').errors?.required"
+        class="invalid-feedback">Debes de seleccionar una opcion
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Interes</label>
+    <div class="col-md-8">
+      <label class="custom-control custom-radio">
+        <input  formControlName = "interes"
+                type="radio"
+                class="custom-control-input"
+                value="hombres"
+                name="interes">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">Hombres</span>
+      </label>
+      <label class="custom-control custom-radio">
+        <input  formControlName = "interes"
+                type="radio"
+                class="custom-control-input"
+                value="mujeres"
+                name="interes">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">Mujeres</span>
+      </label>
+      <label class="custom-control custom-radio">
+        <input  formControlName = "interes"
+                type="radio"
+                class="custom-control-input"
+                value="ambos"
+                name="interes">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">Ambos</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="input-group col-md-10">
+      <button type="submit"
+              class="btn btn-outline-primary mx-auto"
+              [disabled] = "forma.invalid">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+</form>

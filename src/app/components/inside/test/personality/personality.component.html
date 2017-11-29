@@ -1,0 +1,37 @@
+<div>
+  <p>
+    Presiona los colores en el orden de tu preferencia
+  </p>
+</div>
+<div class="row">
+  <div class="col-md-9 text-center">
+    <p>Colores</p>
+    <button type="button" class="btn-color btn-azul"
+            (click)="presiono('azul')" *ngIf="azul"></button>
+    <button type="button" class="btn-color btn-verde"
+            (click)="presiono('verde')" *ngIf="verde"></button>
+    <button type="button" class="btn-color btn-rojo"
+            (click)="presiono('rojo')" *ngIf="rojo"></button>
+    <button type="button" class="btn-color btn-amarillo"
+            (click)="presiono('amarillo')" *ngIf="amarillo"></button>
+    <button type="button" class="btn-color btn-violeta"
+            (click)="presiono('violeta')" *ngIf="violeta"></button>
+    <button type="button" class="btn-color btn-marron"
+            (click)="presiono('marron')" *ngIf="marron"></button>
+    <button type="button" class="btn-color btn-gris"
+            (click)="presiono('gris')" *ngIf="gris"></button>
+    <button type="button" class="btn-color btn-negro"
+            (click)="presiono('negro')" *ngIf="negro"></button>
+  </div>
+  <div class="col-md-3 text-center">
+    Orden de colores
+    <div>
+      <div *ngFor="let color of colores">{{color}}</div>
+    </div>
+  </div>
+  <div class="col-md-12 text-center" *ngIf="colores.length == 8">
+    <br>
+    <button type="button" class="btn btn-success" (click)="guardar()">Terminar</button>
+    <button type="button" class="btn btn-danger" (click)="reiniciar()">Reiniciar</button>
+  </div>
+</div>
